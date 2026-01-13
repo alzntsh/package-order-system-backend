@@ -23,16 +23,10 @@ const mysql = require('mysql2/promise');
 // ============================================================================
 const PORT = process.env.PORT || 3000;
 const DB_CONFIG = {
-  host: process.env.MYSQLHOST || process.env.DB_HOST || 'localhost',
-  // port: process.env.MYSQLPORT || 3000,
-  user: process.env.MYSQLUSER || process.env.DB_USER || 'root',
-  password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD || '',
-  database: process.env.MYSQLDATABASE || process.env.DB_NAME || 'railway'
-
-  // host: process.env.DB_HOST || 'localhost',
-  // user: process.env.DB_USER || 'root',
-  // password: process.env.DB_PASSWORD || '',
-  // database: process.env.DB_NAME || 'package_order_system'
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'package_order_system'
 };
 
 // ============================================================================
