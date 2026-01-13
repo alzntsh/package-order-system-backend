@@ -21,10 +21,10 @@ const mysql = require('mysql2/promise');
 // ============================================================================
 // Configuration
 // ============================================================================
-// const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const DB_CONFIG = {
   host: process.env.MYSQLHOST || process.env.DB_HOST || 'localhost',
-  port: process.env.MYSQLPORT || 3000,
+  // port: process.env.MYSQLPORT || 3000,
   user: process.env.MYSQLUSER || process.env.DB_USER || 'root',
   password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD || '',
   database: process.env.MYSQLDATABASE || process.env.DB_NAME || 'railway'
