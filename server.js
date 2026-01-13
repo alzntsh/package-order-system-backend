@@ -6,6 +6,9 @@
  * @version 1.0.0
  */
 
+// Load environment variables
+require('dotenv').config();
+
 // ============================================================================
 // Dependencies
 // ============================================================================
@@ -70,6 +73,23 @@ app.use(express.urlencoded({ extended: true }));
 
 // Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Health check endpoint for Railway
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    message: 'Package Order System API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'healthy', 
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
+});
 
 // ============================================================================
 // Database Connection Pool
