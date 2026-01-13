@@ -282,7 +282,7 @@ const balancedPackageSplit = async (items, maxPrice) => {
   const sortedItems = [...items].sort((a, b) => parseInt(b.weight) - parseInt(a.weight));
   
   // Initialize packages
-  let packages = Array.from({ length: minPackagesNeeded }, () => ({
+  const packages = Array.from({ length: minPackagesNeeded }, () => ({
     items: [],
     itemIds: [],
     totalWeight: 0,
