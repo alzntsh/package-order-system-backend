@@ -28,7 +28,7 @@ const DB_CONFIG = {
   user: process.env.MYSQLUSER || process.env.DB_USER || 'root',
   password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD || '',
   database: process.env.MYSQLDATABASE || process.env.DB_NAME || 'railway'
-  
+
   // host: process.env.DB_HOST || 'localhost',
   // user: process.env.DB_USER || 'root',
   // password: process.env.DB_PASSWORD || '',
@@ -282,7 +282,7 @@ const balancedPackageSplit = async (items, maxPrice) => {
   const sortedItems = [...items].sort((a, b) => parseInt(b.weight) - parseInt(a.weight));
   
   // Initialize packages
-  const packages = Array.from({ length: minPackagesNeeded }, () => ({
+  let packages = Array.from({ length: minPackagesNeeded }, () => ({
     items: [],
     itemIds: [],
     totalWeight: 0,
