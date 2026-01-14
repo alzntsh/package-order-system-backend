@@ -581,8 +581,8 @@ app.post('/api/v1/orders/calculate', async (req, res) => {
     const totalCourierCharge = packages.reduce((sum, pkg) => sum + pkg.courierPrice, 0);
 
     // Save order to database
-    const totalPrice = items.reduce((sum, item) => sum + item.price, 0);
-    const totalWeight = items.reduce((sum, item) => sum + item.weight, 0);
+    const totalPrice = items.reduce((sum, item) => sum + parseFloat(item.price), 0);
+    const totalWeight = items.reduce((sum, item) => sum + parseInt(item.weight), 0);
     
     await dbPool.query(
       'INSERT INTO orders (total_price, total_weight, package_count, total_courier_charge) VALUES (?, ?, ?, ?)',
